@@ -1,0 +1,17 @@
+services:
+  dw:
+    image: postgres:18
+
+    ports:
+      - 5000:5432
+
+    environment:
+      POSTGRES_DB: dw
+      POSTGRES_USER: dw_user
+      POSTGRES_PASSWORD: dw_password
+
+    volumes:
+      - dbtvolume:/var/lib/postgresql/data
+
+volumes:
+  dbtvolume:
