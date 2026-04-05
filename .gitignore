@@ -29,3 +29,6 @@ Thumbs.db
 .env.local
 *.env
 !.env.example
+
+# Notas pessoais da integração Airflow + dbt
+NOTES_AIRFLOW_DBT.md
