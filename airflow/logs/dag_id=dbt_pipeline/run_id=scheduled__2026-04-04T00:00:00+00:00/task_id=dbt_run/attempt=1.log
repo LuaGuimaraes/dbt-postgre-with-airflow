@@ -1,0 +1,42 @@
+[2026-04-05T06:17:16.969+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-04-05T06:17:16.980+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_pipeline.dbt_run scheduled__2026-04-04T00:00:00+00:00 [queued]>
+[2026-04-05T06:17:16.984+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_pipeline.dbt_run scheduled__2026-04-04T00:00:00+00:00 [queued]>
+[2026-04-05T06:17:16.984+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2026-04-05T06:17:16.990+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): dbt_run> on 2026-04-04 00:00:00+00:00
+[2026-04-05T06:17:16.997+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'dbt_pipeline', 'dbt_run', 'scheduled__2026-04-04T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/dbt_pipeline.py', '--cfg-path', '/tmp/tmphfx_nvi7']
+[2026-04-05T06:17:16.998+0000] {standard_task_runner.py:105} INFO - Job 7: Subtask dbt_run
+[2026-04-05T06:17:17.000+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-04-05T06:17:17.001+0000] {standard_task_runner.py:72} INFO - Started process 198 to run task
+[2026-04-05T06:17:17.025+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_pipeline.dbt_run scheduled__2026-04-04T00:00:00+00:00 [running]> on host 53b5d23da41e
+[2026-04-05T06:17:17.070+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='dbt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-04-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-04-04T00:00:00+00:00'
+[2026-04-05T06:17:17.071+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-04-05T06:17:17.097+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-04-05T06:17:17.099+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt run']
+[2026-04-05T06:17:17.104+0000] {subprocess.py:99} INFO - Output:
+[2026-04-05T06:17:18.417+0000] {subprocess.py:106} INFO - [0m06:17:18  Running with dbt=1.11.7
+[2026-04-05T06:17:18.578+0000] {subprocess.py:106} INFO - [0m06:17:18  Registered adapter: postgres=1.10.0
+[2026-04-05T06:17:18.654+0000] {subprocess.py:106} INFO - [0m06:17:18  Unable to do partial parsing because profile has changed
+[2026-04-05T06:17:19.240+0000] {subprocess.py:106} INFO - [0m06:17:19  Found 4 models, 466 macros
+[2026-04-05T06:17:19.241+0000] {subprocess.py:106} INFO - [0m06:17:19
+[2026-04-05T06:17:19.242+0000] {subprocess.py:106} INFO - [0m06:17:19  Concurrency: 4 threads (target='dev')
+[2026-04-05T06:17:19.242+0000] {subprocess.py:106} INFO - [0m06:17:19
+[2026-04-05T06:17:19.321+0000] {subprocess.py:106} INFO - [0m06:17:19  1 of 4 START sql table model public.raw_data ................................... [RUN]
+[2026-04-05T06:17:19.389+0000] {subprocess.py:106} INFO - [0m06:17:19  1 of 4 OK created sql table model public.raw_data .............................. [[32mSELECT 3[0m in 0.07s]
+[2026-04-05T06:17:19.391+0000] {subprocess.py:106} INFO - [0m06:17:19  2 of 4 START sql incremental model public.merge_ins ............................ [RUN]
+[2026-04-05T06:17:19.391+0000] {subprocess.py:106} INFO - [0m06:17:19  3 of 4 START sql incremental model public.del_ins .............................. [RUN]
+[2026-04-05T06:17:19.434+0000] {subprocess.py:106} INFO - [0m06:17:19  2 of 4 OK created sql incremental model public.merge_ins ....................... [[32mSELECT 3[0m in 0.04s]
+[2026-04-05T06:17:19.435+0000] {subprocess.py:106} INFO - [0m06:17:19  3 of 4 OK created sql incremental model public.del_ins ......................... [[32mSELECT 3[0m in 0.04s]
+[2026-04-05T06:17:19.437+0000] {subprocess.py:106} INFO - [0m06:17:19  4 of 4 START sql incremental model public.inc_ap ............................... [RUN]
+[2026-04-05T06:17:19.454+0000] {subprocess.py:106} INFO - [0m06:17:19  4 of 4 OK created sql incremental model public.inc_ap .......................... [[32mSELECT 3[0m in 0.02s]
+[2026-04-05T06:17:19.460+0000] {subprocess.py:106} INFO - [0m06:17:19
+[2026-04-05T06:17:19.460+0000] {subprocess.py:106} INFO - [0m06:17:19  Finished running 3 incremental models, 1 table model in 0 hours 0 minutes and 0.22 seconds (0.22s).
+[2026-04-05T06:17:19.482+0000] {subprocess.py:106} INFO - [0m06:17:19
+[2026-04-05T06:17:19.482+0000] {subprocess.py:106} INFO - [0m06:17:19  [32mCompleted successfully[0m
+[2026-04-05T06:17:19.482+0000] {subprocess.py:106} INFO - [0m06:17:19
+[2026-04-05T06:17:19.482+0000] {subprocess.py:106} INFO - [0m06:17:19  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[2026-04-05T06:17:20.785+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-04-05T06:17:20.800+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-04-05T06:17:20.801+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=dbt_pipeline, task_id=dbt_run, run_id=scheduled__2026-04-04T00:00:00+00:00, execution_date=20260404T000000, start_date=20260405T061716, end_date=20260405T061720
+[2026-04-05T06:17:20.820+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-04-05T06:17:20.834+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-04-05T06:17:20.835+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

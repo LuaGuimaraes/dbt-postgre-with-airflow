@@ -1,0 +1,12 @@
+my_sample_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: dw
+      user: dw_user
+      password: dw_password
+      port: 5432
+      dbname: dw
+      schema: public
+      threads: 4
