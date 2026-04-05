@@ -6,7 +6,7 @@
 
 with sql_query as ( 
 select
-    CAST(Emp_Id AS NUMBER) AS emp_id,
+    CAST(Emp_Id AS INTEGER) AS emp_id,
     First_Name as first_name,
     Last_Name as last_name,
     TO_DATE(DOB, 'DD-MM-YYYY') as birth_date,
@@ -21,7 +21,7 @@ select
 from sql_query
 )
 
-select * except(rank)
+select emp_id, first_name, last_name, birth_date, date_of_joning, record_date, rank
 from de_dup
 where rank = 1
 
