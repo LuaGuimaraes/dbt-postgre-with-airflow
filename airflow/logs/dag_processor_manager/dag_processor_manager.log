@@ -701,3 +701,214 @@ File Path                                    PID    Runtime      # DAGs    # Err
 -------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
 /opt/airflow/dags/employee_data_pipeline.py                           1           0  0.11s           2026-04-05T07:23:40                      10
 ================================================================================
+[2026-04-05T22:05:07.285+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2026-04-05T22:05:07.286+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2026-04-05T22:05:07.286+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-04-05T22:05:07.286+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2026-04-05T22:05:07.289+0000] {manager.py:824} INFO - There are 2 files in /opt/airflow/dags
+[2026-04-05T22:05:07.344+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run      Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  ----------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    170  0.02s             0           0                                                   0
+/opt/airflow/dags/extract_employees.py         167  0.04s             0           0                                                   0
+================================================================================
+[2026-04-05T22:05:37.699+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/extract_employees.py         177  0.03s             0           0  0.04s           2026-04-05T22:05:07                       3
+/opt/airflow/dags/employee_data_pipeline.py    180  0.01s             0           1  0.04s           2026-04-05T22:05:07                       3
+================================================================================
+[2026-04-05T22:06:08.259+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/extract_employees.py         187  0.03s             0           0  0.22s           2026-04-05T22:05:37                       3
+/opt/airflow/dags/employee_data_pipeline.py    190  0.00s             0           1  0.22s           2026-04-05T22:05:37                       5
+================================================================================
+[2026-04-05T22:06:38.626+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py                           1           0  0.23s           2026-04-05T22:06:19                      43
+/opt/airflow/dags/extract_employees.py         202  0.03s             0           0  0.07s           2026-04-05T22:06:08                       3
+================================================================================
+[2026-04-05T22:07:09.000+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py                           1           0  0.11s           2026-04-05T22:06:49                      10
+/opt/airflow/dags/extract_employees.py         212  0.01s             0           0  0.07s           2026-04-05T22:06:38                       3
+================================================================================
+[2026-04-05T22:07:10.078+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15
+[2026-04-05T22:07:33.081+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2026-04-05T22:07:33.081+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2026-04-05T22:07:33.081+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-04-05T22:07:33.081+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2026-04-05T22:07:33.085+0000] {manager.py:824} INFO - There are 2 files in /opt/airflow/dags
+[2026-04-05T22:07:33.138+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run      Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  ----------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    167  0.02s             0           0                                                   0
+/opt/airflow/dags/extract_employees.py         170  0.01s             0           0                                                   0
+================================================================================
+[2026-04-05T22:08:03.486+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    177  0.04s             1           0  0.28s           2026-04-05T22:07:33                      43
+/opt/airflow/dags/extract_employees.py         180  0.00s             0           0  0.05s           2026-04-05T22:07:33                       3
+================================================================================
+[2026-04-05T22:08:33.895+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    204  0.03s             1           0  0.13s           2026-04-05T22:08:03                      10
+/opt/airflow/dags/extract_employees.py         207  0.00s             0           0  0.05s           2026-04-05T22:08:03                       3
+================================================================================
+[2026-04-05T22:09:04.331+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    214  0.03s             1           0  0.12s           2026-04-05T22:08:33                      10
+/opt/airflow/dags/extract_employees.py         217  0.00s             0           0  0.06s           2026-04-05T22:08:33                       3
+================================================================================
+[2026-04-05T22:09:34.757+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    224  0.03s             1           0  0.11s           2026-04-05T22:09:04                      10
+/opt/airflow/dags/extract_employees.py         226  0.00s             0           0  0.05s           2026-04-05T22:09:04                       3
+================================================================================
+[2026-04-05T22:10:05.222+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    234  0.03s             1           0  0.12s           2026-04-05T22:09:34                      10
+/opt/airflow/dags/extract_employees.py         237  0.01s             0           0  0.06s           2026-04-05T22:09:34                       3
+================================================================================
+[2026-04-05T22:10:35.725+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    244  0.02s             1           0  0.15s           2026-04-05T22:10:05                      10
+/opt/airflow/dags/extract_employees.py         246  0.01s             0           0  0.08s           2026-04-05T22:10:05                       3
+================================================================================
+[2026-04-05T22:11:06.211+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    254  0.02s             1           0  0.12s           2026-04-05T22:10:35                      10
+/opt/airflow/dags/extract_employees.py         256  0.01s             0           0  0.07s           2026-04-05T22:10:35                       3
+================================================================================
+[2026-04-05T22:11:36.573+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    264  0.02s             1           0  0.12s           2026-04-05T22:11:06                      10
+/opt/airflow/dags/extract_employees.py         267  0.00s             0           0  0.07s           2026-04-05T22:11:06                       3
+================================================================================
+[2026-04-05T22:12:06.967+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    274  0.03s             1           0  0.10s           2026-04-05T22:11:36                      10
+/opt/airflow/dags/extract_employees.py         276  0.01s             0           0  0.06s           2026-04-05T22:11:36                       3
+================================================================================
+[2026-04-05T22:12:33.357+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2026-04-05T22:12:33.369+0000] {manager.py:824} INFO - There are 2 files in /opt/airflow/dags
+[2026-04-05T22:12:37.463+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    284  0.03s             1           0  0.15s           2026-04-05T22:12:07                      10
+/opt/airflow/dags/extract_employees.py         287  0.00s             0           0  0.09s           2026-04-05T22:12:07                       3
+================================================================================
+[2026-04-05T22:13:07.915+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    294  0.02s             1           0  0.12s           2026-04-05T22:12:37                      10
+/opt/airflow/dags/extract_employees.py         296  0.00s             0           0  0.06s           2026-04-05T22:12:37                       3
+================================================================================
+[2026-04-05T22:13:38.285+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    341  0.02s             1           0  0.11s           2026-04-05T22:13:08                      10
+/opt/airflow/dags/extract_employees.py         344  0.00s             0           0  0.07s           2026-04-05T22:13:07                       3
+================================================================================
+[2026-04-05T22:14:08.732+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    351  0.03s             1           0  0.11s           2026-04-05T22:13:38                      10
+/opt/airflow/dags/extract_employees.py         354  0.00s             0           0  0.05s           2026-04-05T22:13:38                       3
+================================================================================
+[2026-04-05T22:14:39.137+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    361  0.02s             1           0  0.11s           2026-04-05T22:14:08                      10
+/opt/airflow/dags/extract_employees.py         364  0.00s             0           0  0.05s           2026-04-05T22:14:08                       3
+================================================================================
+[2026-04-05T22:15:09.576+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    371  0.03s             1           0  0.08s           2026-04-05T22:14:39                      10
+/opt/airflow/dags/extract_employees.py         374  0.00s             0           0  0.05s           2026-04-05T22:14:39                       3
+================================================================================
+[2026-04-05T22:15:40.039+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/employee_data_pipeline.py    381  0.03s             1           0  0.14s           2026-04-05T22:15:09                      10
+/opt/airflow/dags/extract_employees.py         384  0.00s             0           0  0.07s           2026-04-05T22:15:09                       3
+================================================================================

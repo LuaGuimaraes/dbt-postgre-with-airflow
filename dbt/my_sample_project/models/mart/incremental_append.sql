@@ -13,7 +13,7 @@
 --
 -- BUG: A variável execution_date é hardcoded, então este modelo só funciona
 -- para dados daquela data específica. Em produção, usaria algo dinâmico
--- como {{ var("execution_date", modules.datetime.date.today()) }}.
+-- como var dinamica com valor default de hoje.
 -- ============================================================================
 {{ config(
     materialized='incremental',

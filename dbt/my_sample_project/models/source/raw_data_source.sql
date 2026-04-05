@@ -2,7 +2,7 @@
 -- raw_data_source — Dados hardcoded de exemplo (Source / Bronze)
 -- ============================================================================
 -- Este model simula uma tabela fonte com dados estáticos.
--- Em produção, seria substituído por uma source real ({{ source(...) }}).
+-- Em producao, seria substituido por uma source real.
 --
 -- Materialização: table → cria uma tabela física no banco.
 -- Alias: raw_data → nome da tabela criada no PostgreSQL.
