@@ -1,14 +1,31 @@
-# Python-generated files
+# Python
 __pycache__/
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
+.venv/
 
-# Virtual environments
-.venv
-
-# dbt auto-generated
+# dbt auto-generated (output da compilação e logs de execução)
 dbt/**/target/
 dbt/**/logs/
+dbt_packages/
+
+# Airflow logs (gerados em runtime, não versionar)
+airflow/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (nunca commitar credenciais)
+.env.local
+*.env
+!.env.example

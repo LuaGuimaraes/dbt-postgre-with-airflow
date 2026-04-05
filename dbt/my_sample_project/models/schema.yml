@@ -1,0 +1,75 @@
+# ============================================================================
+# schema.yml — Testes e documentação dos models dbt
+# ============================================================================
+# Este arquivo YAML define testes de qualidade para cada coluna dos models.
+# O dbt roda esses testes com `dbt test` e falha se algum não passar.
+#
+# Tipos de testes built-in:
+#   unique          → nenhum valor duplicado na coluna
+#   not_null        → nenhum valor nulo
+#   accepted_values → valores devem estar na lista permitida
+#   relationships   → chave estrangeira existe na tabela referenciada
+#
+# Em produção, testes são a primeira linha de defesa contra dados ruins.
+# ============================================================================
+version: 2
+
+models:
+
+  # ========================================================================
+  # stg_employees — Camada Silver (dados limpos e padronizados)
+  # ========================================================================
+  - name: stg_employees
+    columns:
+      - name: employee_id
+        tests:
+          - unique      # Cada funcionário deve ter ID único
+          - not_null    # ID é obrigatório
+      - name: email
+        tests:
+          - unique      # Email não pode se repetir
+          - not_null    # Email é obrigatório
+      - name: salary
+        tests:
+          - not_null    # Salário é obrigatório
+      - name: department
+        tests:
+          - not_null    # Departamento é obrigatório
+          - accepted_values:
+              values: ['ENGINEERING', 'MARKETING', 'SALES', 'HR', 'FINANCE', 'OPERATIONS']
+      - name: hire_date
+        tests:
+          - not_null    # Data de admissão é obrigatória
+
+  # ========================================================================
+  # dim_employee — Dimensão de funcionários (Gold)
+  # ========================================================================
+  - name: dim_employee
+    columns:
+      - name: employee_sk
+        tests:
+          - unique      # Surrogate key deve ser única
+          - not_null
+      - name: full_name
+        tests:
+          - not_null    # Nome completo é obrigatório
+      - name: salary_band
+        tests:
+          - accepted_values:
+              values: ['Junior', 'Mid', 'Senior']
+
+  # ========================================================================
+  # fct_department_summary — Fato agregado por departamento (Gold)
+  # ========================================================================
+  - name: fct_department_summary
+    columns:
+      - name: department
+        tests:
+          - unique      # Um registro por departamento
+          - not_null
+      - name: employee_count
+        tests:
+          - not_null    # Contagem é obrigatória
+      - name: avg_salary
+        tests:
+          - not_null    # Média salarial é obrigatória

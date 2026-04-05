@@ -1,41 +1,53 @@
+# ============================================================================
+# dbt_project.yml — Arquivo central de configuração do projeto dbt
+# ============================================================================
+# Este arquivo define:
+#   - Nome e versão do projeto
+#   - Qual profile de conexão usar (profiles.yml)
+#   - Onde encontrar models, tests, macros, seeds, etc.
+#   - Configurações padrão para os models (materialização, estratégia, etc.)
+#
+# Equivale ao package.json / pyproject.toml no mundo dbt.
+# ============================================================================
 
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'my_sample_project'
-version: '1.0.0'
+name: 'my_sample_project'   # Nome do projeto (apenas lowercase + underscores)
+version: '1.0.0'            # Versão do projeto (semantic versioning)
 
+# ============================================================================
+# Variáveis globais acessíveis nos models via {{ var("nome_da_var") }}
+# Usadas principalmente em modelos incrementais para filtrar por data.
+# ============================================================================
+vars:
+  execution_date: '2022-09-01'  # Data fixa usada no filtro incremental (demo)
 
-vars: 
-  # The 'start_date' variable is used in the incremental models to determine the date from which to start building data.
-  execution_date: '2022-09-01'
-
-# This setting configures which "profile" dbt uses for this project.
+# ============================================================================
+# Profile de conexão — deve corresponder ao nome definido no profiles.yml
+# ============================================================================
 profile: 'my_sample_project'
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
+# ============================================================================
+# Paths — onde o dbt procura cada tipo de arquivo
+# ============================================================================
+model-paths: ["models"]       # SQL files que viram tabelas/views
+analysis-paths: ["analyses"]  # Queries ad-hoc (não são compiladas como models)
+test-paths: ["tests"]         # Testes genéricos (SQL que retorna linhas = falha)
+seed-paths: ["seeds"]         # CSVs que viram tabelas no banco (dbt seed)
+macro-paths: ["macros"]       # Funções SQL reutilizáveis (Jinja macros)
+snapshot-paths: ["snapshots"] # Histórico de mudanças (SCD Type 2)
 
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
+# Pastas removidas ao rodar `dbt clean`
+clean-targets:
+  - "target"          # Output da compilação (SQL gerado, docs, etc.)
+  - "dbt_packages"    # Pacotes instalados via dbt deps
 
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
+# ============================================================================
+# Configurações de models por diretório
+# O prefixo + indica configuração aplicada aos models filhos.
+# Podem ser sobrescritas individualmente com {{ config(...) }} no SQL.
+# ============================================================================
 models:
   my_sample_project:
-    # Config indicated by + and applies to all files under models/example/
     staging:
+      # Estratégia padrão para models incrementais na pasta staging/
+      # merge = UPSERT (insere novos, atualiza existentes pelo unique_key)
       +incremental_strategy: merge
