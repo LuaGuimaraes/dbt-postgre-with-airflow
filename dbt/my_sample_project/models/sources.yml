@@ -1,0 +1,22 @@
+# ============================================================================
+# sources.yml — Define as fontes de dados externas ao dbt
+# ============================================================================
+# Sources são tabelas que o dbt NÃO cria — elas vêm de processos de ingestão
+# (Airflow, Fivetran, Airbyte, scripts Python, etc.).
+#
+# O dbt lê dessas tabelas via {{ source('nome_da_source', 'nome_da_tabela') }}
+# e as transforma em models (staging → intermediate → marts).
+#
+# Benefícios de definir sources:
+#   - Documentação automática (dbt docs)
+#   - Testes de freshness (dados estão atualizados?)
+#   - Linage graph (de onde vêm os dados?)
+# ============================================================================
+version: 2
+
+sources:
+  - name: raw                     # Nome lógico da source (usado em {{ source('raw', ...) }})
+    database: dw                  # Banco de dados onde a tabela existe
+    schema: public                # Schema onde a tabela existe
+    tables:
+      - name: raw_employees       # Tabela de funcionários brutos (criada pelo Python no Airflow)

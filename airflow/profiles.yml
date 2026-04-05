@@ -1,0 +1,24 @@
+# ============================================================================
+# profiles.yml — Configuração de conexão do dbt com o banco de dados
+# ============================================================================
+# O dbt usa este arquivo para saber como se conectar ao warehouse.
+# É o equivalente ao "connection string" do dbt.
+#
+# No docker-compose, montamos este arquivo em /opt/airflow/profiles.yml
+# e definimos DBT_PROFILES_DIR=/opt/airflow nos containers do Airflow.
+#
+# IMPORTANTE: Em produção, nunca coloque senhas em texto puro.
+# Use variáveis de ambiente ou secret managers (AWS Secrets Manager, Vault, etc).
+# ============================================================================
+my_sample_project:          # Nome do profile (deve bater com o 'profile' no dbt_project.yml)
+  target: dev               # Ambiente alvo (pode ter vários: dev, staging, prod)
+  outputs:
+    dev:                    # Configuração do ambiente de desenvolvimento
+      type: postgres        # Adapter: dbt-postgres
+      host: dw              # Host = nome do serviço no docker-compose
+      user: dw_user         # Usuário do PostgreSQL
+      password: dw_password # Senha do PostgreSQL
+      port: 5432            # Porta padrão do PostgreSQL
+      dbname: dw            # Nome do banco de dados
+      schema: public        # Schema onde as tabelas serão criadas
+      threads: 4            # Número de conexões paralelas (dbt roda models em paralelo)
