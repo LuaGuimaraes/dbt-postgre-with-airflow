@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dbt auto-generated
+dbt/**/target/
+dbt/**/logs/

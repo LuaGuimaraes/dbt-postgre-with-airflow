@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: dw_password
 
     volumes:
-      - dbtvolume:/var/lib/postgresql/data
+      - dbtvolume:/var/lib/postgresql
 
 volumes:
   dbtvolume:
