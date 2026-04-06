@@ -25,7 +25,7 @@ with sql_query as (
         First_Name as first_name,
         Last_Name as last_name,
         TO_DATE(DOB, 'DD-MM-YYYY') as birth_date,
-        DOJ as date_of_joning,
+        DOJ as date_of_joining,
         Record_Date as record_date
     from {{ ref('raw_data_source') }}
 ),
@@ -37,6 +37,6 @@ de_dup as (
     from sql_query
 )
 
-select emp_id, first_name, last_name, birth_date, date_of_joning, record_date
+select emp_id, first_name, last_name, birth_date, date_of_joining, record_date
 from de_dup
 where rank = 1

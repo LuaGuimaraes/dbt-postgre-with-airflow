@@ -10,9 +10,6 @@
 --
 -- CTE de_dup: remove duplicatas mantendo o registro mais recente
 --   (ROW_NUMBER particionado por emp_id, ordenado por record_date DESC)
---
--- BUG conhecido: a coluna 'rank' está sendo exposta no SELECT final.
--- Deveria ser excluída pois é um artefato interno de deduplicação.
 -- ============================================================================
 {{ config(
     materialized='incremental',
@@ -26,7 +23,7 @@ with sql_query as (
         First_Name as first_name,
         Last_Name as last_name,
         TO_DATE(DOB, 'DD-MM-YYYY') as birth_date,
-        DOJ as date_of_joning,
+        DOJ as date_of_joining,
         Record_Date as record_date
     from {{ ref('raw_data_source') }}
 ),
@@ -38,6 +35,6 @@ de_dup as (
     from sql_query
 )
 
-select emp_id, first_name, last_name, birth_date, date_of_joning, record_date, rank
+select emp_id, first_name, last_name, birth_date, date_of_joining, record_date
 from de_dup
 where rank = 1
