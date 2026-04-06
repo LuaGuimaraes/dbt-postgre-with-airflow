@@ -13,7 +13,7 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime
 
 # Importa a função de extração de um arquivo separado
-from dags.extract_employees import extract_fake_employees
+from extract_employees import extract_fake_employees
 
 
 # ============================================================================

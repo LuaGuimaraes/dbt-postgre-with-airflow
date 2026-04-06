@@ -13,7 +13,7 @@
 --
 -- BUG: A variável execution_date é hardcoded, então este modelo só funciona
 -- para dados daquela data específica. Em produção, usaria algo dinâmico
--- como {{ var("execution_date", modules.datetime.date.today()) }}.
+-- como var dinamica com valor default de hoje.
 -- ============================================================================
 {{ config(
     materialized='incremental',
@@ -26,12 +26,12 @@ with sql_query as (
         First_Name as first_name,
         Last_Name as last_name,
         birth_date as birth_date,
-        date_of_joning as date_of_joning,
+        date_of_joining as date_of_joining,
         Record_Date as record_date
     from {{ ref('merge_strategy_emp') }}
     {% if is_incremental() %}
     -- Só executa este filtro quando a tabela já existe (execuções incrementais)
-    where Record_Date = '{{ var("execution_date") }}'
+    where record_date = '{{ var("execution_date") }}'
     {% endif %}
 )
 
