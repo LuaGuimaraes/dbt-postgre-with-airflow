@@ -50,9 +50,7 @@ Tudo é orquestrado pelo **Apache Airflow** e roda localmente via **Docker Compo
 
 ### Diagrama de Componentes
 
-![Architecture Diagram](images/architecture.png)
-
-> O arquivo `architecture.drawio` pode ser aberto e editado em [app.diagrams.net](https://app.diagrams.net).
+![Architecture Diagram](assets/architecture.png)
 
 ---
 
@@ -202,37 +200,37 @@ Os testes verificam:
 
 ### 1. Visão Gráfica da DAG
 
-![DAG Graph View](images/01-dag-graph-view.png)
+![DAG Graph View](assets/01-dag-graph-view.png)
 
 A DAG mostra 3 tarefas conectadas em sequência: extrair → transformar → validar.
 
 ### 2. Execução Bem-Sucedida
 
-![DAG Run Success](images/02-dag-run-success.png)
+![DAG Run Success](assets/02-dag-run-success.png)
 
 Todas as 3 tarefas foram concluídas com sucesso (verde). O pipeline rodou do início ao fim sem erros.
 
 ### 3. Resultados dos Testes dbt
 
-![dbt Test Results](images/03-dbt-test-results.png)
+![dbt Test Results](assets/03-dbt-test-results.png)
 
 Todos os 16 testes de qualidade de dados passaram: **16/16 PASS**. Sem avisos, sem erros.
 
 ### 4. Tabelas no PostgreSQL
 
-![PostgreSQL Tables](images/04-postgresql-tables.png)
+![PostgreSQL Tables](assets/04-postgresql-tables.png)
 
 Todas as tabelas do pipeline foram criadas: `raw_employees`, `stg_employees`, `dim_employee`, `fct_department_summary`, mais os modelos de demonstração.
 
 ### 5. Saída da Dimensão de Funcionários
 
-![dim_employee Output](images/05-dim-employee-output.png)
+![dim_employee Output](assets/05-dim-employee-output.png)
 
 A tabela Gold `dim_employee` com colunas calculadas: `full_name`, `years_of_service`, `salary_band` (Junior/Mid/Senior).
 
 ### 6. Saída do Resumo por Departamento
 
-![fct_department_summary Output](images/06-fct-department-summary.png)
+![fct_department_summary Output](assets/06-fct-department-summary.png)
 
 Métricas agregadas por departamento: contagem de funcionários, salário médio/mínimo/máximo, tempo médio de casa, quantidade de cidades.
 
@@ -289,7 +287,7 @@ Todos os testes estão definidos em `dbt/my_sample_project/models/schema.yml`:
 │           ├── fct_department_summary.sql # Gold: métricas por departamento
 │           └── incremental_append.sql    # Demo: append-only incremental
 │
-└── images/                          # Capturas de tela para documentação
+└── assets/                          # Capturas de tela para documentação
     ├── architecture.png
     ├── 01-dag-graph-view.png
     ├── 02-dag-run-success.png
@@ -444,9 +442,8 @@ Everything is orchestrated by **Apache Airflow** and runs locally via **Docker C
 
 ### Component Diagram
 
-![Architecture Diagram](images/architecture.png)
+![Architecture Diagram](assets/architecture.png)
 
-> Open `architecture.drawio` in [app.diagrams.net](https://app.diagrams.net) to view/edit the vector diagram.
 
 ## Quick Start
 
